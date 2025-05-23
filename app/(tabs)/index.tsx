@@ -6,6 +6,7 @@ import {
   ScrollView, 
   Image,
   TouchableOpacity,
+  Linking,
 } from 'react-native';
 import { usePortfolio } from '@/context/PortfolioContext';
 import { Section, Card } from '@/components/ui/Section';
@@ -78,15 +79,30 @@ export default function ProfileScreen() {
         </View>
         
         <View style={styles.socialLinks}>
-          <TouchableOpacity style={styles.socialButton}>
-            <Linkedin size={22} color={theme.primary} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.socialButton}>
-            <Github size={22} color={theme.primary} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.socialButton}>
-            <Twitter size={22} color={theme.primary} />
-          </TouchableOpacity>
+          {personalInfo.socialLinks.linkedin && (
+            <TouchableOpacity 
+              style={styles.socialButton}
+              onPress={() => Linking.openURL(personalInfo.socialLinks.linkedin)}
+            >
+              <Linkedin size={22} color={theme.primary} />
+            </TouchableOpacity>
+          )}
+          {personalInfo.socialLinks.github && (
+            <TouchableOpacity 
+              style={styles.socialButton}
+              onPress={() => Linking.openURL(personalInfo.socialLinks.github)}
+            >
+              <Github size={22} color={theme.primary} />
+            </TouchableOpacity>
+          )}
+          {personalInfo.socialLinks.twitter && (
+            <TouchableOpacity 
+              style={styles.socialButton}
+              onPress={() => Linking.openURL(personalInfo.socialLinks.twitter)}
+            >
+              <Twitter size={22} color={theme.primary} />
+            </TouchableOpacity>
+          )}
         </View>
         
         <View style={styles.bioContainer}>
