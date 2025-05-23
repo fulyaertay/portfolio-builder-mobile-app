@@ -171,21 +171,21 @@ export default function ProfileScreen() {
         <Card>
           <Input
             label="LinkedIn"
-            value={formData.socialLinks.linkedin}
+            value={formData.socialLinks?.linkedin ?? ''}
             onChangeText={(value) => handleChange('socialLinks.linkedin', value)}
             placeholder="https://linkedin.com/in/johndoe"
           />
           
           <Input
             label="GitHub"
-            value={formData.socialLinks.github}
+            value={formData.socialLinks?.github ?? ''}
             onChangeText={(value) => handleChange('socialLinks.github', value)}
             placeholder="https://github.com/johndoe"
           />
           
           <Input
             label="Twitter"
-            value={formData.socialLinks.twitter}
+            value={formData.socialLinks?.twitter ?? ''}
             onChangeText={(value) => handleChange('socialLinks.twitter', value)}
             placeholder="https://twitter.com/johndoe"
           />
